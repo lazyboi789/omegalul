@@ -26,7 +26,8 @@ export class LoginComponent implements OnInit {
     }
     else{
       // alert("Username cannot be empty");
-      this._appService.showSnackBar("Username cannot be empty", "danger");
+      console.log('button pressing?')
+      this._appService.showSnackBar("Username cannot be empty", 1, 5000);
     }
     
   }

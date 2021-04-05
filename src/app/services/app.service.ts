@@ -1,31 +1,24 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppService {
-
-  showingSnackBar:boolean = false;
+  private readonly _snackBar = new BehaviorSubject({showing: false, message: '', type: 0});
+  readonly snackBar = this._snackBar.asObservable();
 
   constructor() { }
 
-  showSnackBar(message:string, type:string){
-    //show the snackbar
-    this.showingSnackBar = true;
+  showSnackBar(message:string, type:number, duration:number){
 
-    let snackbar  = document.getElementById("snackbar");
+    // showing snackbar
+    this._snackBar.next({showing: true, message, type});
 
-    if(this.showingSnackBar){
-     snackbar?.classList.add('show');
-    }
-    else{
-     snackbar?.classList.remove('show');
-    }
-
-    setTimeout(()=>{
-      this.showingSnackBar = false;
-      snackbar?.classList.remove('show');
-    }, 1000)
+    // hiding snackbar after x amount of time
+    setTimeout(() => {
+      this._snackBar.next({showing: false, message, type});
+    }, duration);
 
   }
 }
