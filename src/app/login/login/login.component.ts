@@ -1,43 +1,53 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppService } from 'src/app/services/app.service';
+import { ChatService } from 'src/app/services/chat.service';
+import { WebsocketService } from 'src/app/services/websocket.service';
 import { Snackbar } from 'src/app/shared/snackbar/snackbar.enum';
 
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.less']
+  styleUrls: ['./login.component.less'],
+  providers: [WebsocketService, ChatService]
 })
 export class LoginComponent implements OnInit {
 
-  userName:string = "";
+  userName: string = "";
 
-  constructor(private _router: Router, private _appService: AppService) { }
+  constructor(private _router: Router, private _appService: AppService, private _chatService: ChatService) {
+
+  }
 
   ngOnInit(): void {
     this.clearUserName();
+    this._chatService.isConnected.subscribe(isConnected => {
+      if (isConnected) {
+        this._appService.showSnackBar("WebSocket Connected", Snackbar.Success, 2000);
+      }
+    });
   }
 
-  login(){
+  login() {
 
-    if(this.userName !== ""){
+    if (this.userName !== "") {
       sessionStorage.setItem('username', this.userName);
       this._router.navigateByUrl('chat');
     }
-    else{
+    else {
       this._appService.showSnackBar("Username cannot be empty", Snackbar.Danger, 5000);
     }
-    
+
   }
 
-  handleEnterKeyPressLogin(event: KeyboardEvent){
-    if(event.key === "Enter"){
+  handleEnterKeyPressLogin(event: KeyboardEvent) {
+    if (event.key === "Enter") {
       this.login();
     }
   }
 
-  clearUserName(){
+  clearUserName() {
     sessionStorage.removeItem('username');
   }
 
