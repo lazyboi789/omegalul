@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AppService } from 'src/app/services/app.service';
 
 
 @Component({
@@ -11,7 +12,7 @@ export class LoginComponent implements OnInit {
 
   userName:string = "";
 
-  constructor(private _router: Router) { }
+  constructor(private _router: Router, private _appService: AppService) { }
 
   ngOnInit(): void {
     this.clearUserName();
@@ -24,7 +25,8 @@ export class LoginComponent implements OnInit {
       this._router.navigateByUrl('chat');
     }
     else{
-      alert("Username cannot be empty");
+      // alert("Username cannot be empty");
+      this._appService.showSnackBar("Username cannot be empty", "danger");
     }
     
   }

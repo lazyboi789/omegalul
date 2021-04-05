@@ -5,7 +5,8 @@
             <input type="text" [(ngModel)]="userName" name="username" (keypress)="handleEnterKeyPressLogin($event)" />
         </div>
        <div class="loginbutton">
-           <button type="button" (click)="login()" [disabled]="userName === ''" [ngClass]="{'disabled': userName === ''}">Login</button>
+           <!-- <button type="button" (click)="login()" [disabled]="userName === ''" [ngClass]="{'disabled': userName === ''}">Login</button> -->
+           <button type="button" (click)="login()">Login</button>
        </div>
     </form>
 </div>

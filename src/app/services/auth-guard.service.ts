@@ -11,11 +11,7 @@ export class AuthGuardService {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
 
-    console.log('canActivate');
-
     let userFromSession = sessionStorage.getItem('username');
-
-    console.log(userFromSession);
 
     if (userFromSession == null) {
       this._router.navigateByUrl('login');
