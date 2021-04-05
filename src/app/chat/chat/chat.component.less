@@ -1,0 +1,98 @@
+section.topsection{
+    padding:1.5rem;
+    background-color:#1F8ABF;
+    color:white;
+    text-align: center;
+}
+.sidemenubutton{
+    position: absolute;
+    font-size: 1.5rem;
+}
+
+.sidemenu{
+    display:none;
+}
+
+.users-container{
+    background-image: url("../../../assets/images/moneyjar.jpg");
+    background-size: cover;
+    padding:1rem;
+    color:white;
+    min-height:90vh;
+    display:grid;
+    grid-gap:10px;
+    grid-template-rows: max-content;
+}
+
+.users-container input{
+    height:2.5em;
+    font-size:1em;
+    outline:none;
+    border:1px solid #ddd;
+    padding:0 1em;
+}
+
+.users{
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content;
+    grid-gap: 10px;
+}
+/*--Desktop Views--*/
+@media screen and (min-width:1024px) {
+    .users{
+        grid-template-columns: 1fr 1fr;
+    }
+    
+}
+
+@media screen and (min-width:1100px){
+    .users{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (min-width:1300px){
+    .users{
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+/*--Desktop Views--*/
+
+.card{
+    /* width:auto; */
+    border:1px solid #ddd;
+    padding:1em;
+    background-color:#fff;
+    color:black;
+    max-height:350px;
+    display:grid;
+    grid-template-rows: auto auto auto;
+    box-shadow: 5px 4px 10px 0;
+}
+
+.card .card-image{
+    text-align: center;
+    margin-bottom:10px;
+}
+
+.card .card-title{
+    text-align: center;
+}
+
+.card .card-title p{
+    margin:0;
+    font-size:1.5em;
+}
+
+.card .card-image img{
+    max-width:100px;
+}
+
+.footer{
+    padding:1rem;
+    background-color:#1F8ABF;
+    color:white;
+}
+
+
