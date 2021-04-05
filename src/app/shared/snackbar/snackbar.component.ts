@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppService } from 'src/app/services/app.service';
 import { takeUntil } from 'rxjs/operators';
 import { Observable, Subject } from 'rxjs';
+import { Snackbar } from './snackbar.enum';
 
 @Component({
   selector: 'snackbar',
@@ -27,6 +28,20 @@ export class SnackbarComponent implements OnInit {
       this.snackBarType = res.type;
     })
 
+  }
+
+  getSnackBarType(): string { 
+    let snackBarClass = '';
+    let showSnackBar = `${this.showSnackBar ? 'show' : ''}`;
+    switch (this.snackBarType) {
+      case Snackbar.Info: snackBarClass = `${showSnackBar} info`; break;
+      case Snackbar.Success: snackBarClass = `${showSnackBar} success`; break;
+      case Snackbar.Warning: snackBarClass = `${showSnackBar} warning`; break;
+      case Snackbar.Danger: snackBarClass = `${showSnackBar} danger`; break;
+      default: snackBarClass = '';
+    }
+
+    return snackBarClass;
   }
 
 }

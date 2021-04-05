@@ -1,3 +1,8 @@
+@info: blue;
+@success: green;
+@warning: orange;
+@danger: red;
+
 #snackbar{
     position: absolute;
     left:10px;
@@ -6,8 +11,25 @@
     height:80px;
     background-color:white;
     display:none;
+    color: #fff;
 
     &.show{
         display:block;
+    }
+
+    &.info{ 
+        background-color: @info;
+    }
+
+    &.success{ 
+        background-color: @success;
+    }
+
+    &.warning{ 
+        background-color: @warning;
+    }
+
+    &.danger{ 
+        background-color: @danger;
     }
 }
