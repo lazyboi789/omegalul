@@ -17,16 +17,22 @@ export class LoginComponent implements OnInit {
     this.clearUserName();
   }
 
-  storeUserName(){
+  login(){
 
     if(this.userName !== ""){
       sessionStorage.setItem('username', this.userName);
-      this._router.navigateByUrl("chat");
+      this._router.navigateByUrl('chat');
     }
     else{
       alert("Username cannot be empty");
     }
     
+  }
+
+  handleEnterKeyPressLogin(event: KeyboardEvent){
+    if(event.key === "Enter"){
+      this.login();
+    }
   }
 
   clearUserName(){

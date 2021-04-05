@@ -1,3 +1,12 @@
-<input type="text" placeholder="Enter a name" [(ngModel)]="userName"/>
-<button (click)="storeUserName()">Login</button>
+<div class="loginform-container">
+    <form class="loginform">
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" [(ngModel)]="userName" name="username" (keypress)="handleEnterKeyPressLogin($event)" />
+        </div>
+       <div class="loginbutton">
+           <button type="button" (click)="login()" [disabled]="userName === ''" [ngClass]="{'disabled': userName === ''}">Login</button>
+       </div>
+    </form>
+</div>
 
