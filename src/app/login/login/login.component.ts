@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppService } from 'src/app/services/app.service';
+import { Snackbar } from 'src/app/shared/snackbar/snackbar.enum';
 
 
 @Component({
@@ -26,7 +27,7 @@ export class LoginComponent implements OnInit {
     }
     else{
       // alert("Username cannot be empty");
-      this._appService.showSnackBar("Username cannot be empty", "danger");
+      this._appService.showSnackBar("Username cannot be empty", Snackbar.Danger);
     }
     
   }

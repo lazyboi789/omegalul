@@ -1,7 +1,9 @@
 <div class="loginform-container">
     <form class="loginform">
         <div class="form-group">
-            <label>Username</label>
+            <div class="label">
+                <span>Username</span>
+            </div>
             <input type="text" [(ngModel)]="userName" name="username" (keypress)="handleEnterKeyPressLogin($event)" />
         </div>
        <div class="loginbutton">

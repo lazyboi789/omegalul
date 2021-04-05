@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Snackbar } from '../shared/snackbar/snackbar.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class AppService {
 
   constructor() { }
 
-  showSnackBar(message:string, type:string){
+  showSnackBar(message:string, type:Snackbar){
     //show the snackbar
     this.showingSnackBar = true;
 
