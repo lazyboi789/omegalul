@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppService } from 'src/app/services/app.service';
+import { Snackbar } from 'src/app/shared/snackbar/snackbar.enum';
 
 
 @Component({
@@ -25,9 +26,7 @@ export class LoginComponent implements OnInit {
       this._router.navigateByUrl('chat');
     }
     else{
-      // alert("Username cannot be empty");
-      console.log('button pressing?')
-      this._appService.showSnackBar("Username cannot be empty", 1, 5000);
+      this._appService.showSnackBar("Username cannot be empty", Snackbar.Danger, 5000);
     }
     
   }
