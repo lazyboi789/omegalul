@@ -25,7 +25,12 @@ export class LoginComponent implements OnInit {
     this._chatService.isConnected.subscribe(isConnected => {
       if (isConnected) {
         this._appService.showSnackBar("WebSocket Connected", Snackbar.Success, 2000);
+        this._chatService.sendMessage('hello');
       }
+      else{
+        this._appService.showSnackBar("WebSocket Not Connected", Snackbar.Danger, 2000);
+      }
+
     });
   }
 
