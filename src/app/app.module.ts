@@ -9,7 +9,7 @@ import { SnackbarComponent } from './shared/snackbar/snackbar.component';
 @NgModule({
   declarations: [
     AppComponent,
-    SnackbarComponent,
+    SnackbarComponent
   ],
   imports: [
     BrowserModule,
